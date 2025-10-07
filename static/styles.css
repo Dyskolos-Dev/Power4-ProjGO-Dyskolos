@@ -1,159 +1,863 @@
-/* Styles pour le Puissance 4 */
+/* SITE WEB ANNÉES 90 - KIKI DE BONDY */
+
 body {
-    font-family: 'Arial', sans-serif;
+    background: #000080;
+    background-image: 
+        radial-gradient(circle at 20% 20%, #FF00FF 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, #00FFFF 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, #FFFF00 0%, transparent 50%);
+    color: #FFFF00;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: white;
+    overflow-x: auto;
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Pj/8PD4//D4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='), auto;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+marquee {
+    background: linear-gradient(90deg, #FF0000, #00FF00, #0000FF, #FFFF00, #FF00FF);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    border: 3px solid #FFFFFF;
+    animation: rainbow-border 2s linear infinite;
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+}
+
+/* Curseurs Windows 98 pour différents éléments */
+/* Liens avec curseur de main pointante */
+a, .kiki-menu a, .kiki-menu button {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+    cursor: pointer;
+}
+
+/* Zones de texte avec curseur de texte */
+input[type="text"], textarea, .text-input {
+    cursor: url('data:image/cur;base64,AAACAAEAEAAAAAAAAAAwCAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8='), text;
+    cursor: text;
+}
+
+/* Éléments interactifs avec curseur de main */
+button, .clickable, .popup-btn, .retour-btn, .award-badge, .kiki-btn, .kiki-who-btn, .kiki-blog-btn, .kiki-quiz-btn, .kiki-horoscope-btn, .kiki-games-btn, .kiki-exploits-btn, .kiki-partenaires-btn {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
+    cursor: pointer;
+}
+
+/* Zone de redimensionnement */
+.popup-90s, .kebab-menu, .mascot-speech-bubble {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P8='), move;
+    cursor: move;
+}
+
+/* Curseur d'attente pour les éléments de chargement */
+.loading, #visitor-count {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P/w8Pj/8PD4//Dw+P8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P8='), wait;
+    cursor: wait;
+}
+
+/* Curseur interdit pour éléments désactivés */
+.disabled, [disabled] {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAA/wAAAP8='), not-allowed;
+    cursor: not-allowed;
+}
+
+/* Curseurs spéciaux pour les jeux */
+.snake-game-area, #snakeCanvas {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////Dw+P8AAAD/AAAA/wAAAP/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/AAAA/wAAAP/w8Pj/8PD4//Dw+P8='), crosshair;
+    cursor: crosshair;
+}
+
+.memory-card, .clicker-area {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/AAAA/wAAAP//////='), grab;
+    cursor: grab;
+}
+
+.memory-card:active, .clicker-area:active {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD/AAAA/8PD4//Dw+P/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/w8Pj/8PD4//AAAA/wAAAP//////='), grabbing;
+    cursor: grabbing;
+}
+
+/* Curseur spécial pour la zone de la mascotte */
+.kiki-mascot-follower {
+    cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD/////='), none;
+    cursor: none;
+}
+
+@keyframes rainbow-border {
+    0% { border-color: #FF0000; }
+    16% { border-color: #FF8000; }
+    33% { border-color: #FFFF00; }
+    50% { border-color: #00FF00; }
+    66% { border-color: #0080FF; }
+    83% { border-color: #8000FF; }
+    100% { border-color: #FF0000; }
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: linear-gradient(45deg, #800080, #008080);
+    border: 5px ridge #C0C0C0;
+    padding: 20px;
+    box-shadow: 10px 10px 0px #000000;
+}
+
+blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+    color: #FFFF00;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #FF0000;
+}
+
+@keyframes blink-animation {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.profil-kiki {
+    display: block;
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #FFFF00;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #FF00FF;
+    image-rendering: pixelated;
 }
 
 h1 {
+    text-align: center;
+    color: #00FFFF;
+    font-size: 32px;
+    text-shadow: 3px 3px 0px #FF0000;
+    text-decoration: underline;
+    margin: 20px 0;
+}
+
+.section-title {
+    color: #FFFF00;
+    background: #800000;
+    padding: 5px;
+    border: 2px solid #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 15px 0 10px 0;
+}
+
+.intro, .chute, .rejet, .manifestation {
+    background: linear-gradient(90deg, #004080, #800040);
+    border: 3px groove #C0C0C0;
+    padding: 15px;
+    margin: 20px 0;
+    color: #FFFFFF;
+}
+
+.story p, .intro p, .chute p, .rejet p, .manifestation p {
+    color: #FFFFFF;
+    line-height: 1.8;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.story-separator {
+    border: none;
+    border-top: 3px dashed #FFFF00;
+    margin: 25px 0;
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
+}
+
+.slogan {
+    color: #FF00FF;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #000000;
+    text-align: center;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.date {
+    color: #00FF00;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.kiki-menu {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    z-index: 40;
+    background: linear-gradient(45deg, #FF0080, #8000FF, #0080FF, #00FF80);
+    background-size: 400% 400%;
+    animation: gradient-shift 3s ease infinite;
+    border: 4px outset #FFFF00;
+    padding: 15px;
+    min-width: 220px;
+    box-shadow: 8px 8px 0px #000000, 12px 12px 0px #800080;
+    transform: rotate(-2deg);
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.kiki-menu ul {
+    list-style: none;
     margin: 0;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.welcome-section {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
-
-.game-setup {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 2rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.setup-form h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #fff;
-}
-
-.player-section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.player-info {
+    padding: 0;
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.player-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.player-input {
-    flex: 1;
-}
-
-.player-input label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.player-input input {
+.kiki-menu li {
     width: 100%;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #333;
-}
-
-.game-mode-section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.mode-selection {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.start-section {
-    text-align: center;
-}
-
-.start-button {
-    background: linear-gradient(45deg, #ff6b6b, #feca57);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.start-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Styles pour la page de jeu */
-.game-info {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.game-info p {
-    margin: 0.5rem 0;
-    font-size: 1.1rem;
-}
-
-.game-board {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
 }
 
-footer {
+.menu-decoration {
+    background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+    color: #FFFFFF;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border: 2px solid #FFFFFF;
+    font-weight: bold;
+    font-size: 12px;
+    animation: rainbow-text 2s linear infinite, bounce 1s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 0px #000000;
+    cursor: pointer;
+}
+
+.menu-decoration:hover {
+    transform: scale(1.1);
+    animation: button-party 0.3s linear infinite;
+}
+
+@keyframes rainbow-text {
+    0% { color: #FF0000; }
+    16% { color: #FF8000; }
+    33% { color: #FFFF00; }
+    50% { color: #00FF00; }
+    66% { color: #0080FF; }
+    83% { color: #8000FF; }
+    100% { color: #FF0000; }
+}
+
+.kiki-btn, .kiki-who-btn, .kiki-blog-btn, .kiki-quiz-btn, .kiki-horoscope-btn, .kiki-games-btn, .kiki-exploits-btn, .kiki-partenaires-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #FFFF00, #FF8000, #FF0080);
+    color: #000000;
+    border: 3px outset #FFFFFF;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    box-shadow: 3px 3px 0px #000000;
+    animation: button-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes button-glow {
+    from { box-shadow: 3px 3px 0px #000000, 0 0 5px #FFFF00; }
+    to { box-shadow: 3px 3px 0px #000000, 0 0 15px #FF0080, 0 0 25px #FF0080; }
+}
+
+.kiki-btn:hover, .kiki-who-btn:hover, .kiki-blog-btn:hover, .kiki-quiz-btn:hover, .kiki-horoscope-btn:hover, .kiki-games-btn:hover, .kiki-exploits-btn:hover, .kiki-partenaires-btn:hover {
+    background: linear-gradient(45deg, #00FFFF, #00FF00, #FFFF00);
+    border: 3px inset #FFFFFF;
+    transform: scale(1.05);
+    animation: button-party 0.5s linear infinite;
+}
+
+@keyframes button-party {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.theme-toggle {
+    display: none;
+}
+
+.kiki-float {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #000000;
+    image-rendering: pixelated;
+}
+
+.visitor-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, #000080, #000040);
+    color: #FFFF00;
+    border: 3px ridge #C0C0C0;
+    padding: 12px 15px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    animation: counter-glow 2s ease-in-out infinite alternate;
+    box-shadow: 5px 5px 0px #000000;
+    text-align: center;
+    min-width: 200px;
+}
+
+.counter-text {
+    display: block;
+    color: #00FFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.counter-display {
+    background: #000000;
+    border: 2px inset #C0C0C0;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 0;
+}
+
+#visitor-count {
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
+    letter-spacing: 2px;
+    animation: counter-flicker 3s linear infinite;
+}
+
+@keyframes counter-flicker {
+    0%, 98% { opacity: 1; }
+    99%, 100% { opacity: 0.8; }
+}
+
+.counter-info {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #C0C0C0;
+    line-height: 1.2;
+}
+
+.counter-info small {
+    color: #FFFFFF;
+}
+
+#last-visit, #daily-count {
+    color: #00FFFF;
+    font-weight: bold;
+}
+
+@keyframes counter-glow {
+    from { 
+        box-shadow: 5px 5px 0px #000000, 0 0 10px #00FFFF; 
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 5px 5px 0px #000000, 0 0 20px #00FFFF, 0 0 30px #0080FF; 
+        transform: scale(1.02);
+    }
+}
+
+/* MASCOTTE KIKI QUI SUIT LA SOURIS */
+.kiki-mascot-follower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.mascot-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #FFFF00;
+    box-shadow: 
+        0 0 8px #FFFF00,
+        2px 2px 0px #000000;
+    animation: mascot-bounce 2s ease-in-out infinite;
+    background: #FFFFFF;
+    object-fit: cover;
+}
+
+@keyframes mascot-bounce {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+        border-color: #FFFF00;
+        box-shadow: 0 0 8px #FFFF00, 2px 2px 0px #000000;
+    }
+    25% { 
+        transform: translateY(-5px) rotate(-2deg) scale(1.1);
+        border-color: #FF00FF;
+        box-shadow: 0 0 10px #FF00FF, 2px 2px 0px #000000;
+    }
+    50% { 
+        transform: translateY(-3px) rotate(0deg) scale(1.15);
+        border-color: #00FFFF;
+        box-shadow: 0 0 12px #00FFFF, 2px 2px 0px #000000;
+    }
+    75% { 
+        transform: translateY(-5px) rotate(2deg) scale(1.1);
+        border-color: #00FF00;
+        box-shadow: 0 0 10px #00FF00, 2px 2px 0px #000000;
+    }
+}
+
+.mascot-speech-bubble {
+    position: absolute;
+    top: -35px;
+    left: -40px;
+    background: linear-gradient(45deg, #FFFF00, #FFA500);
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px #000000;
+    animation: bubble-glow 3s ease-in-out infinite;
+}
+
+.mascot-speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #FFFF00 transparent transparent transparent;
+    filter: drop-shadow(1px 1px 0px #000000);
+}
+
+@keyframes bubble-glow {
+    0%, 100% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 4px #FFFF00;
+    }
+    50% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 10px #FFA500, 0 0 15px #FFA500;
+    }
+}
+
+.mascot-speech-bubble.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation spéciale quand Kiki est excité */
+.kiki-mascot-follower.excited .mascot-image {
+    animation: mascot-excited 0.5s ease-in-out infinite;
+}
+
+@keyframes mascot-excited {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(-10deg); }
+    75% { transform: scale(1.2) rotate(10deg); }
+}
+
+/* Animation spéciale quand Kiki dort (pas de mouvement souris) */
+.kiki-mascot-follower.sleeping .mascot-image {
+    animation: mascot-sleeping 3s ease-in-out infinite;
+    opacity: 0.7;
+    filter: grayscale(30%);
+}
+
+@keyframes mascot-sleeping {
+    0%, 100% { transform: scale(0.9) rotate(-2deg); }
+    50% { transform: scale(0.8) rotate(2deg); }
+}
+
+.kiki-mascot-follower.sleeping .mascot-speech-bubble {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation pour l'entrée de la mascotte */
+.kiki-mascot-follower.entering {
+    animation: mascot-enter 1s ease-out forwards;
+}
+
+@keyframes mascot-enter {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #FFFF00;
+    font-size: 14px;
+    background: #800000;
+    padding: 10px;
+    border: 2px solid #FFFFFF;
+}
+
+.footer-link {
+    color: #00FFFF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: #FFFF00;
+    text-shadow: 1px 1px 0px #FF0000;
+}
+
+.heart {
+    color: #FF0000;
+    font-size: 14px;
+    animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Effets spéciaux années 90 */
+@keyframes rotate-crazy {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.2); }
+    50% { transform: rotate(180deg) scale(0.8); }
+    75% { transform: rotate(270deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+strong {
+    color: #FF00FF;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+/* Responsive pour les années 90 (même si ça n'existait pas vraiment) */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .kiki-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    marquee {
+        font-size: 14px;
+    }
+    
+    .profil-kiki {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Popup années 90 style */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: popup-fadein 0.5s ease-out;
+}
+
+@keyframes popup-fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-90s {
+    background: linear-gradient(45deg, #FF0080, #8000FF);
+    border: 4px outset #FFFF00;
+    box-shadow: 10px 10px 0px #000000, 15px 15px 0px #800080;
+    width: 450px;
+    max-width: 90vw;
+    animation: popup-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popup-bounce {
+    0% { transform: scale(0.3) rotate(-10deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.popup-header {
+    background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #FFFFFF;
+}
+
+.popup-title {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 2px 2px 0px #000000;
+    animation: title-flash 1s ease-in-out infinite alternate;
+}
+
+@keyframes title-flash {
+    from { text-shadow: 2px 2px 0px #000000; }
+    to { text-shadow: 2px 2px 0px #000000, 0 0 10px #FFFFFF; }
+}
+
+.popup-close {
+    background: #FF0000;
+    border: 2px outset #FFFFFF;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 8px;
+    transition: all 0.2s;
+}
+
+.popup-close:hover {
+    background: #800000;
+    border: 2px inset #FFFFFF;
+    transform: scale(1.1);
+}
+
+.popup-content {
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+.popup-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.popup-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.popup-btn {
+    background: linear-gradient(45deg, #FFFF00, #FF8000);
+    border: 3px outset #FFFFFF;
+    color: #000000;
+    font-weight: bold;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Comic Sans MS", serif;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    box-shadow: 3px 3px 0px #000000;
+    animation: btn-pulse 2s ease-in-out infinite;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+@keyframes btn-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.popup-btn:hover {
+    background: linear-gradient(45deg, #00FFFF, #00FF00);
+    border: 3px inset #FFFFFF;
+    animation: btn-party 0.3s linear infinite;
+}
+
+@keyframes btn-party {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Menu Kebab très moche */
+.kebab-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(139, 69, 19, 0.8);
+    z-index: 9998;
+    justify-content: center;
+    align-items: center;
+    animation: kebab-fadein 0.5s ease-out;
+}
+
+@keyframes kebab-fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.kebab-menu {
+    background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+    border: 5px ridge #FFD700;
+    box-shadow: 12px 12px 0px #000000, 18px 18px 0px #8B4513;
+    width: 500px;
+    max-width: 90vw;
+    animation: kebab-wobble 0.8s ease-out;
+    transform: rotate(-1deg);
+}
+
+@keyframes kebab-wobble {
+    0% { transform: scale(0.5) rotate(-45deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(-1deg); }
+}
+
+.kebab-header {
+    background: linear-gradient(90deg, #FF6347, #FFD700, #FF6347);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid #8B4513;
+}
+
+.kebab-title {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 3px 3px 0px #000000;
+    font-family: "Comic Sans MS", serif;
+    animation: kebab-title-shake 2s ease-in-out infinite;
+}
+
+@keyframes kebab-title-shake {
+    0%, 100% { transform: translateX(0px); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+}
+
+.kebab-close {
+    background: #8B0000;
+    border: 3px outset #FFD700;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: all 0.3s;
+}
+
+.kebab-close:hover {
+    background: #FF0000;
+    border: 3px inset #FFD700;
+    transform: scale(1.2) rotate(10deg);
+}
+
+.kebab-content {
+    padding: 20px;
+    background: #FAEBD7;
+    color: #8B4513;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+.kebab-content h3 {
+    text-align: center;
+    color: #8B0000;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px #FFD700;
+    animation: kebab-h3-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes kebab-h3-pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.kebab-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 8px 0;
+    background: linear-gradient(90deg, #F5DEB3, #DEB887);
+    border: 2px solid #8B4513;
+    border-radius: 0;
+    box-shadow: 3px 3px 0px #8B4513;
+}
+
+.kebab-item:nth-child(odd) {
+    background: linear-gradient(90deg, #DEB887, #F5DEB3);
+    transform: rotate(0.5deg);
+}
+
+.kebab-item:nth-child(even) {
+    transform: rotate(-0.5deg);
+}
+
+.kebab-name {
+    font-weight: bold;
+    color: #8B4513;
+    font-size: 16px;
+}
+
+.kebab-price {
+    font-weight: bold;
+    color: #8B0000;
+    font-size: 18px;
+    text-shadow: 1px 1px 0px #FFD700;
+}
+
+.kebab-content marquee {
+    background: #FF6347;
+    padding: 8px;
+    border: 2px solid #8B4513;
+    margin-top: 15px;
 }
