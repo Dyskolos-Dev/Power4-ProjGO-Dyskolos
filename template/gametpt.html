@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>P4 Kiki - Jeu</title>
+	<link rel="icon" type="image/x-icon" href="/src/favicon.ico">
+	<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+	<header>
+		<h1>Puissance 4 - Mode Tour par Tour</h1>
+	</header>
+	<main>
+		<div class="game-info">
+			<p>Joueur 1: <span id="player1">{{.Player1.Name}}</span> ({{.Player1.Color}})</p>
+			<p>Joueur 2: <span id="player2">{{.Player2.Name}}</span> ({{.Player2.Color}})</p>
+			<p>Tour actuel: <span id="current-turn">{{.CurrentTurn}}</span></p>
+		</div>
+		<div class="game-board">
+			<p>Plateau de jeu à implémenter...</p>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2025, kiki.dyskolos.fr</p>
+	</footer>
+</body>
+</html>
