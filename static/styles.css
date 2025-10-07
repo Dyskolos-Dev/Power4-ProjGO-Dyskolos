@@ -12,7 +12,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: auto;
+<<<<<<< HEAD
     cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Pj/8PD4//D4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4//Dw+P/w8Pj/8PD4/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='), auto;
+=======
+>>>>>>> p4-dev
 }
 
 marquee {
@@ -26,6 +29,7 @@ marquee {
     cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAA='), pointer;
 }
 
+<<<<<<< HEAD
 /* Curseurs Windows 98 pour différents éléments */
 /* Liens avec curseur de main pointante */
 a, .kiki-menu a, .kiki-menu button {
@@ -84,6 +88,9 @@ button, .clickable, .popup-btn, .retour-btn, .award-badge, .kiki-btn, .kiki-who-
     cursor: url('data:image/cur;base64,AAACAAEAIAAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD//////wAAAP//////AAAA//////8AAAD/////='), none;
     cursor: none;
 }
+=======
+
+>>>>>>> p4-dev
 
 @keyframes rainbow-border {
     0% { border-color: #FF0000; }
@@ -222,6 +229,7 @@ h1 {
     list-style: none;
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -672,6 +680,544 @@ strong {
 .popup-content {
     padding: 20px;
     text-align: center;
+=======
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kiki-menu li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-decoration {
+    background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 8px;
+    border: 2px solid #FFFFFF;
+    font-weight: bold;
+    font-size: 12px;
+    animation: rainbow-text 2s linear infinite, bounce 1s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 0px #000000;
+    cursor: pointer;
+}
+
+.menu-decoration:hover {
+    transform: scale(1.1);
+    animation: button-party 0.3s linear infinite;
+}
+
+@keyframes rainbow-text {
+    0% { color: #FF0000; }
+    16% { color: #FF8000; }
+    33% { color: #FFFF00; }
+    50% { color: #00FF00; }
+    66% { color: #0080FF; }
+    83% { color: #8000FF; }
+    100% { color: #FF0000; }
+}
+
+.kiki-btn, .kiki-who-btn, .kiki-blog-btn, .kiki-quiz-btn, .kiki-horoscope-btn, .kiki-games-btn, .kiki-exploits-btn, .kiki-partenaires-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #FFFF00, #FF8000, #FF0080);
+    color: #000000;
+    border: 3px outset #FFFFFF;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    box-shadow: 3px 3px 0px #000000;
+    animation: button-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes button-glow {
+    from { box-shadow: 3px 3px 0px #000000, 0 0 5px #FFFF00; }
+    to { box-shadow: 3px 3px 0px #000000, 0 0 15px #FF0080, 0 0 25px #FF0080; }
+}
+
+.kiki-btn:hover, .kiki-who-btn:hover, .kiki-blog-btn:hover, .kiki-quiz-btn:hover, .kiki-horoscope-btn:hover, .kiki-games-btn:hover, .kiki-exploits-btn:hover, .kiki-partenaires-btn:hover {
+    background: linear-gradient(45deg, #00FFFF, #00FF00, #FFFF00);
+    border: 3px inset #FFFFFF;
+    transform: scale(1.05);
+    animation: button-party 0.5s linear infinite;
+}
+
+@keyframes button-party {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.theme-toggle {
+    display: none;
+}
+
+.kiki-float {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #000000;
+    image-rendering: pixelated;
+}
+
+.visitor-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, #000080, #000040);
+    color: #FFFF00;
+    border: 3px ridge #C0C0C0;
+    padding: 12px 15px;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    animation: counter-glow 2s ease-in-out infinite alternate;
+    box-shadow: 5px 5px 0px #000000;
+    text-align: center;
+    min-width: 200px;
+}
+
+.counter-text {
+    display: block;
+    color: #00FFFF;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.counter-display {
+    background: #000000;
+    border: 2px inset #C0C0C0;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 0;
+}
+
+#visitor-count {
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00FF00;
+    letter-spacing: 2px;
+    animation: counter-flicker 3s linear infinite;
+}
+
+@keyframes counter-flicker {
+    0%, 98% { opacity: 1; }
+    99%, 100% { opacity: 0.8; }
+}
+
+.counter-info {
+    margin-top: 8px;
+    font-size: 9px;
+    color: #C0C0C0;
+    line-height: 1.2;
+}
+
+.counter-info small {
+    color: #FFFFFF;
+}
+
+#last-visit, #daily-count {
+    color: #00FFFF;
+    font-weight: bold;
+}
+
+@keyframes counter-glow {
+    from { 
+        box-shadow: 5px 5px 0px #000000, 0 0 10px #00FFFF; 
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 5px 5px 0px #000000, 0 0 20px #00FFFF, 0 0 30px #0080FF; 
+        transform: scale(1.02);
+    }
+}
+
+/* MASCOTTE KIKI QUI SUIT LA SOURIS */
+.kiki-mascot-follower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.mascot-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #FFFF00;
+    box-shadow: 
+        0 0 8px #FFFF00,
+        2px 2px 0px #000000;
+    animation: mascot-bounce 2s ease-in-out infinite;
+    background: #FFFFFF;
+    object-fit: cover;
+}
+
+@keyframes mascot-bounce {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) scale(1);
+        border-color: #FFFF00;
+        box-shadow: 0 0 8px #FFFF00, 2px 2px 0px #000000;
+    }
+    25% { 
+        transform: translateY(-5px) rotate(-2deg) scale(1.1);
+        border-color: #FF00FF;
+        box-shadow: 0 0 10px #FF00FF, 2px 2px 0px #000000;
+    }
+    50% { 
+        transform: translateY(-3px) rotate(0deg) scale(1.15);
+        border-color: #00FFFF;
+        box-shadow: 0 0 12px #00FFFF, 2px 2px 0px #000000;
+    }
+    75% { 
+        transform: translateY(-5px) rotate(2deg) scale(1.1);
+        border-color: #00FF00;
+        box-shadow: 0 0 10px #00FF00, 2px 2px 0px #000000;
+    }
+}
+
+.mascot-speech-bubble {
+    position: absolute;
+    top: -35px;
+    left: -40px;
+    background: linear-gradient(45deg, #FFFF00, #FFA500);
+    border: 2px solid #000000;
+    border-radius: 15px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: 1px 1px 0px #FFFFFF;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.5) translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px #000000;
+    animation: bubble-glow 3s ease-in-out infinite;
+}
+
+.mascot-speech-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #FFFF00 transparent transparent transparent;
+    filter: drop-shadow(1px 1px 0px #000000);
+}
+
+@keyframes bubble-glow {
+    0%, 100% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 4px #FFFF00;
+    }
+    50% { 
+        box-shadow: 2px 2px 0px #000000, 0 0 10px #FFA500, 0 0 15px #FFA500;
+    }
+}
+
+.mascot-speech-bubble.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation spéciale quand Kiki est excité */
+.kiki-mascot-follower.excited .mascot-image {
+    animation: mascot-excited 0.5s ease-in-out infinite;
+}
+
+@keyframes mascot-excited {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(-10deg); }
+    75% { transform: scale(1.2) rotate(10deg); }
+}
+
+/* Animation spéciale quand Kiki dort (pas de mouvement souris) */
+.kiki-mascot-follower.sleeping .mascot-image {
+    animation: mascot-sleeping 3s ease-in-out infinite;
+    opacity: 0.7;
+    filter: grayscale(30%);
+}
+
+@keyframes mascot-sleeping {
+    0%, 100% { transform: scale(0.9) rotate(-2deg); }
+    50% { transform: scale(0.8) rotate(2deg); }
+}
+
+.kiki-mascot-follower.sleeping .mascot-speech-bubble {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Animation pour l'entrée de la mascotte */
+.kiki-mascot-follower.entering {
+    animation: mascot-enter 1s ease-out forwards;
+}
+
+@keyframes mascot-enter {
+    0% {
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(90deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #FFFF00;
+    font-size: 14px;
+    background: #800000;
+    padding: 10px;
+    border: 2px solid #FFFFFF;
+}
+
+.footer-link {
+    color: #00FFFF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.footer-link:hover {
+    color: #FFFF00;
+    text-shadow: 1px 1px 0px #FF0000;
+}
+
+.heart {
+    color: #FF0000;
+    font-size: 14px;
+    animation: heart-beat 1.5s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Effets spéciaux années 90 */
+@keyframes rotate-crazy {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.2); }
+    50% { transform: rotate(180deg) scale(0.8); }
+    75% { transform: rotate(270deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+strong {
+    color: #FF00FF;
+    text-shadow: 1px 1px 0px #000000;
+}
+
+/* Styles spécifiques pour le formulaire Puissance 4 */
+.setup-form {
+    width: 100%;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.player-input {
+    flex: 1;
+    min-width: 250px;
+}
+
+.player-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #FFFF00;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.player-input input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 3px inset #C0C0C0;
+    background: #FFFFFF;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+    border-radius: 0;
+    box-shadow: 3px 3px 0px #000000;
+}
+
+.player-input input:focus {
+    outline: none;
+    border: 3px outset #FFFF00;
+    background: #FFFFCC;
+    animation: input-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes input-glow {
+    from { box-shadow: 3px 3px 0px #000000, 0 0 5px #FFFF00; }
+    to { box-shadow: 3px 3px 0px #000000, 0 0 15px #FFFF00, 0 0 25px #FFFF00; }
+}
+
+.mode-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin: 15px 0;
+}
+
+.mode-selection input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #FFFF00;
+}
+
+.mode-selection label {
+    color: #FFFFFF;
+    font-size: 18px;
+    cursor: pointer;
+    text-shadow: 2px 2px 0px #000000;
+}
+
+.mode-selection label:hover {
+    color: #FFFF00;
+    text-shadow: 2px 2px 0px #000000, 0 0 5px #FFFF00;
+}
+
+/* Responsive pour les années 90 (même si ça n'existait pas vraiment) */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .kiki-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        transform: none;
+    }
+    
+    marquee {
+        font-size: 14px;
+    }
+    
+    .profil-kiki {
+        width: 150px;
+        height: 150px;
+    }
+
+    .player-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .player-input {
+        width: 100%;
+    }
+}
+
+/* Popup années 90 style */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: popup-fadein 0.5s ease-out;
+}
+
+@keyframes popup-fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.popup-90s {
+    background: linear-gradient(45deg, #FF0080, #8000FF);
+    border: 4px outset #FFFF00;
+    box-shadow: 10px 10px 0px #000000, 15px 15px 0px #800080;
+    width: 450px;
+    max-width: 90vw;
+    animation: popup-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popup-bounce {
+    0% { transform: scale(0.3) rotate(-10deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.popup-header {
+    background: linear-gradient(90deg, #FF0000, #FFFF00, #00FF00, #00FFFF, #0000FF, #FF00FF);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #FFFFFF;
+}
+
+.popup-title {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 2px 2px 0px #000000;
+    animation: title-flash 1s ease-in-out infinite alternate;
+}
+
+@keyframes title-flash {
+    from { text-shadow: 2px 2px 0px #000000; }
+    to { text-shadow: 2px 2px 0px #000000, 0 0 10px #FFFFFF; }
+}
+
+.popup-close {
+    background: #FF0000;
+    border: 2px outset #FFFFFF;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 8px;
+    transition: all 0.2s;
+}
+
+.popup-close:hover {
+    background: #800000;
+    border: 2px inset #FFFFFF;
+    transform: scale(1.1);
+}
+
+.popup-content {
+    padding: 20px;
+    text-align: center;
+>>>>>>> p4-dev
     color: #FFFFFF;
     font-family: "Comic Sans MS", "Times New Roman", serif;
 }
