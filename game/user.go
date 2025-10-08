@@ -1,20 +1,17 @@
-package power4
+package game
 
-// User représente un utilisateur du jeu
 type User struct {
 	Name  string `json:"name"`
-	Color string `json:"color"` // "red" ou "yellow"
+	Color string `json:"color"`
 }
 
-// GameSession représente une session de jeu
 type GameSession struct {
 	Player1     User   `json:"player1"`
 	Player2     User   `json:"player2"`
-	CurrentTurn string `json:"currentTurn"` // nom du joueur dont c'est le tour
-	GameMode    string `json:"gameMode"`    // "local" pour tour par tour local
+	CurrentTurn string `json:"currentTurn"`
+	GameMode    string `json:"gameMode"`
 }
 
-// NewGameSession crée une nouvelle session de jeu
 func NewGameSession(player1Name, player2Name string) *GameSession {
 	return &GameSession{
 		Player1: User{

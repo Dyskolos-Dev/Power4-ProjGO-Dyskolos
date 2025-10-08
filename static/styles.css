@@ -1,4 +1,4 @@
-/* SITE WEB ANNÉES 90 - KIKI DE BONDY */
+/* SITE WEB ANNÉES 90 - KIKI DE BONDY CSS FROM KIKI.DYSKOLOS.FR*/
 
 body {
     background: #000080;
@@ -587,6 +587,106 @@ strong {
     text-shadow: 2px 2px 0px #000000, 0 0 5px #FFFF00;
 }
 
+/* Styles pour le plateau de jeu Puissance 4 */
+.game-board-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.column-buttons {
+    margin-bottom: 15px;
+}
+
+.column-btn {
+    background: linear-gradient(45deg, #00FFFF, #0080FF);
+    border: 3px outset #FFFFFF;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 0;
+    box-shadow: 3px 3px 0px #000000;
+    margin: 0 3px;
+    transition: all 0.2s;
+    font-family: "Comic Sans MS", "Times New Roman", serif;
+}
+
+.column-btn:hover {
+    background: linear-gradient(45deg, #FFFF00, #FF8000);
+    border: 3px inset #FFFFFF;
+    transform: translateY(2px);
+    box-shadow: 1px 1px 0px #000000;
+    animation: button-glow 0.5s ease-in-out infinite alternate;
+}
+
+.game-grid {
+    display: inline-block;
+    background: linear-gradient(45deg, #0000FF, #000080);
+    border: 5px ridge #FFFF00;
+    padding: 20px;
+    box-shadow: 10px 10px 0px #000000;
+    border-radius: 0;
+}
+
+.grid-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-cell {
+    width: 55px;
+    height: 55px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.grid-cell img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #FFFFFF;
+    animation: piece-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes piece-glow {
+    from { 
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); 
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 0, 0.3); 
+        transform: scale(1.05);
+    }
+}
+
+/* Animation pour les pions qui tombent */
+@keyframes piece-drop {
+    0% {
+        transform: translateY(-300px) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-50px) rotate(180deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.grid-cell img.dropping {
+    animation: piece-drop 0.8s ease-in-out forwards, piece-glow 2s ease-in-out infinite alternate 0.8s;
+}
+
 /* Responsive pour les années 90 (même si ça n'existait pas vraiment) */
 @media (max-width: 600px) {
     .container {
@@ -619,6 +719,26 @@ strong {
 
     .player-input {
         width: 100%;
+    }
+
+    .grid-cell {
+        width: 40px;
+        height: 40px;
+    }
+
+    .grid-cell img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .column-btn {
+        padding: 8px 10px;
+        font-size: 14px;
+        margin: 0 1px;
+    }
+
+    .game-grid {
+        padding: 15px;
     }
 }
 

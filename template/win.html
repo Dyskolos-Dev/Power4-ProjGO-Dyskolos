@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>🔥 KIKI POWER 4 - BATAILLE TERMINÉE ! 🔥</title>
+	<link rel="icon" type="image/x-icon" href="/src/favicon.ico">
+	<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+	<div class="container">
+		<div style="text-align: left; margin-bottom: 20px;">
+			<a href="/" class="popup-btn" style="font-size: 14px; padding: 8px 15px;">🏠 Nouvelle partie</a>
+		</div>
+		
+		{{if eq .Winner "Match nul"}}
+			<h1>🤝 MATCH NUL ! 🤝</h1>
+			
+			<div class="intro">
+				<p style="text-align: center; font-size: 24px;">
+					<blink>🎭 Égalité parfaite ! 🎭</blink>
+				</p>
+				<p>{{.Player1.Name}} et {{.Player2.Name}} ont fait match nul dans cette bataille épique de Puissance 4 !</p>
+				<p>Même Kiki n'arrive pas à départager ces deux champions ! 🤯</p>
+			</div>
+			
+			<div style="text-align: center; margin: 30px 0;">
+				<img src="/src/kiki_rouge.png" alt="{{.Player1.Name}}" class="profil-kiki" style="width: 100px; height: 100px; margin: 0 20px;">
+				<img src="/src/gab_jaune.png" alt="{{.Player2.Name}}" class="profil-kiki" style="width: 100px; height: 100px; margin: 0 20px;">
+			</div>
+		{{else}}
+			<h1>🎉 VICTOIRE DE {{.Winner}} ! 🎉</h1>
+			
+			<div class="intro">
+				<p style="text-align: center; font-size: 24px;">
+					<blink>🏆 CHAMPION CONFIRMÉ ! 🏆</blink>
+				</p>
+				<p><strong>{{.Winner}}</strong> remporte cette bataille épique de Puissance 4 !</p>
+				<p>Kiki est fier de ce combat digne des plus grandes légendes de Bondy ! ⚡</p>
+			</div>
+			
+			<div style="text-align: center; margin: 30px 0;">
+				{{if eq .Winner .Player1.Name}}
+					<img src="/src/kiki_rouge.png" alt="Champion {{.Winner}}" class="profil-kiki" style="width: 150px; height: 150px; animation: rotate-crazy 2s infinite;">
+					<div style="margin-top: 20px;">
+						<strong style="color: #FF6666; font-size: 20px;">🔴 {{.Winner}} - VAINQUEUR ! 🔴</strong>
+					</div>
+				{{else}}
+					<img src="/src/gab_jaune.png" alt="Champion {{.Winner}}" class="profil-kiki" style="width: 150px; height: 150px; animation: rotate-crazy 2s infinite;">
+					<div style="margin-top: 20px;">
+						<strong style="color: #FFFF66; font-size: 20px;">🟡 {{.Winner}} - VAINQUEUR ! 🟡</strong>
+					</div>
+				{{end}}
+			</div>
+		{{end}}
+
+		<hr class="story-separator">
+
+		<div class="manifestation">
+			<div class="section-title">📊 RÉSULTAT FINAL 📊</div>
+			<div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; margin: 20px 0;">
+				<div style="text-align: center; margin: 10px;">
+					<img src="/src/kiki_rouge.png" alt="{{.Player1.Name}}" class="profil-kiki" style="width: 80px; height: 80px;">
+					<div style="margin-top: 10px;">
+						<strong style="color: #FF6666;">🔴 {{.Player1.Name}}</strong><br>
+						{{if eq .Winner .Player1.Name}}<span style="color: #00FF00;">✅ VAINQUEUR</span>{{else if eq .Winner "Match nul"}}<span style="color: #FFFF00;">🤝 ÉGALITÉ</span>{{else}}<span style="color: #FF6666;">❌ DÉFAITE</span>{{end}}
+					</div>
+				</div>
+				
+				<div style="text-align: center; margin: 10px;">
+					<img src="/src/gab_jaune.png" alt="{{.Player2.Name}}" class="profil-kiki" style="width: 80px; height: 80px;">
+					<div style="margin-top: 10px;">
+						<strong style="color: #FFFF66;">🟡 {{.Player2.Name}}</strong><br>
+						{{if eq .Winner .Player2.Name}}<span style="color: #00FF00;">✅ VAINQUEUR</span>{{else if eq .Winner "Match nul"}}<span style="color: #FFFF00;">🤝 ÉGALITÉ</span>{{else}}<span style="color: #FF6666;">❌ DÉFAITE</span>{{end}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div style="text-align: center; margin: 30px 0;">
+			<div class="slogan">"Même sans style, on peut gagner au Puissance 4 !"</div>
+			<div class="date">🗓️ Bataille terminée - Dyskolos 🗓️</div>
+			
+			<div style="margin-top: 30px;">
+				<a href="/" class="popup-btn" style="font-size: 18px; padding: 15px 30px; margin: 10px;">
+					🎮 NOUVELLE BATAILLE !
+				</a>
+				<a href="https://kiki.dyskolos.fr" class="popup-btn" style="font-size: 18px; padding: 15px 30px; margin: 10px;">
+					🏠 RETOUR CHEZ KIKI
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		Bataille terminée par Kiki ! 🎮<br>
+		Made with <span class="heart">❤️</span> by <a href="https://dyskolos.fr/" class="footer-link">Dyskolos_</a>
+	</div>
+</body>
+</html>
