@@ -10,62 +10,60 @@
 <body>
 
 
-	<div class="container">
-		<div style="text-align: left; margin-bottom: 20px;">
-			<a href="https://kiki.dyskolos.fr" class="popup-btn" style="font-size: 14px; padding: 8px 15px;">� Retour chez Kiki</a>
+	<div class="container" style="max-width: 750px; padding: 18px;">
+		<div style="text-align: left; margin-bottom: 18px;">
+			<a href="https://kiki.dyskolos.fr" class="popup-btn" style="font-size: 14px; padding: 8px 15px;">🔙 Retour chez Kiki</a>
 		</div>
-		<h1>🌟 KIKI POWER 4 🌟</h1>
+		<h1 style="margin: 18px 0; font-size: 30px;">🌟 KIKI POWER 4 🌟</h1>
 		
-		<img src="/src/kiki_rouge.png" alt="Kiki de Bondy" class="profil-kiki">
+		<img src="/src/kiki_rouge.png" alt="Kiki de Bondy" class="profil-kiki" style="width: 150px; height: 150px; margin: 18px auto;">
 		
 		<div class="section-title">⚡ CONFIGURATION DE LA BATAILLE ⚡</div>
 		
-		<div class="intro">
-			<p><blink>🚨 ATTENTION ! 🚨</blink> Vous vous apprêtez à entrer dans l'arène du <strong>Puissance 4 de Kiki</strong> ! 
+		<div class="intro" style="margin: 18px 0; padding: 12px;">
+			<p style="margin: 12px 0; font-size: 15px;"><blink>🚨 ATTENTION ! 🚨</blink> Vous vous apprêtez à entrer dans l'arène du <strong>Puissance 4 de Kiki</strong> ! 
 			Seuls les teams de PGM peuvent entrer dans cette arène de Puissance 4 !</p>
 		</div>
 
 		<form action="/start-game" method="POST" class="setup-form">
-			<div class="chute">
-				<div class="section-title">🔴 LE JOUEUR ROUGE 🔴</div>
-				<div class="player-info">
-					<img src="/src/kiki_rouge.png" alt="Champion Rouge" class="profil-kiki" style="width: 100px; height: 100px;">
-					<div class="player-input">
-						<label for="player1"><strong>Nom du joueur rouge :</strong></label>
-						<input type="text" id="player1" name="player1" placeholder="Entrez le nom du héros rouge" required>
+			<div class="players-container">
+				<div class="chute" style="margin-bottom: 18px;">
+					<div class="section-title">🔴 LE JOUEUR ROUGE 🔴</div>
+					<div class="player-info-compact">
+						<img src="/src/kiki_rouge.png" alt="Champion Rouge" style="width: 75px; height: 75px; border: 3px solid #FFFF00; margin-right: 18px;">
+						<div class="player-input-compact">
+							<label for="player1"><strong>Nom du joueur rouge :</strong></label>
+							<input type="text" id="player1" name="player1" placeholder="Entrez le nom du héros rouge" required style="max-width: 350px;">
+						</div>
+					</div>
+				</div>
+
+				<div class="rejet" style="margin-bottom: 18px;">
+					<div class="section-title">🟡 LE JOUEUR JAUNE 🟡</div>
+					<div class="player-info-compact">
+						<img src="/src/gab_jaune.png" alt="Champion Jaune" style="width: 75px; height: 75px; border: 3px solid #FFFF00; margin-right: 18px;">
+						<div class="player-input-compact">
+							<label for="player2"><strong>Nom du joueur jaune :</strong></label>
+							<input type="text" id="player2" name="player2" placeholder="Entrez le nom du champion jaune" required style="max-width: 350px;">
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<hr class="story-separator">
-
-			<div class="rejet">
-				<div class="section-title">🟡 LE JOUEUR JAUNE 🟡</div>
-				<div class="player-info">
-					<img src="/src/gab_jaune.png" alt="Champion Jaune" class="profil-kiki" style="width: 100px; height: 100px;">
-					<div class="player-input">
-						<label for="player2"><strong>Nom du joueur jaune :</strong></label>
-						<input type="text" id="player2" name="player2" placeholder="Entrez le nom du champion jaune" required>
-					</div>
-				</div>
-			</div>
-
-			<hr class="story-separator">
-
-			<div class="manifestation">
+			<div class="manifestation" style="margin: 18px 0;">
 				<div class="section-title">⚔️ NIVEAU DE DIFFICULTÉ ⚔️</div>
-				<div class="level-selection" style="text-align: center; margin: 20px 0;">
-					<div style="margin: 15px 0;">
+				<div class="level-selection" style="text-align: center; margin: 18px 0; max-width: 550px; margin-left: auto; margin-right: auto;">
+					<div style="margin: 12px 0;">
 						<input type="radio" id="facile" name="level" value="facile" checked>
-						<label for="facile"><strong>🟢 FACILE (6x7) 🟢</strong><br><span style="font-size: 14px;">Grille classique pour débuter !</span></label>
+						<label for="facile"><strong>🟢 FACILE (6x7) 🟢</strong><br><span style="font-size: 13px;">Grille classique pour débuter !</span></label>
 					</div>
-					<div style="margin: 15px 0;">
+					<div style="margin: 12px 0;">
 						<input type="radio" id="normal" name="level" value="normal">
-						<label for="normal"><strong>🟡 NORMAL (6x9) 🟡</strong><br><span style="font-size: 14px;">Plus de colonnes pour plus de stratégie !</span></label>
+						<label for="normal"><strong>🟡 NORMAL (6x9) 🟡</strong><br><span style="font-size: 13px;">Plus de colonnes pour plus de stratégie !</span></label>
 					</div>
-					<div style="margin: 15px 0;">
+					<div style="margin: 12px 0;">
 						<input type="radio" id="difficile" name="level" value="difficile">
-						<label for="difficile"><strong>🔴 DIFFICILE (7x8) 🔴</strong><br><span style="font-size: 14px;">Grille élargie pour les experts !</span></label>
+						<label for="difficile"><strong>🔴 DIFFICILE (7x8) 🔴</strong><br><span style="font-size: 13px;">Grille élargie pour les experts !</span></label>
 					</div>
 				</div>
 				<input type="hidden" name="gamemode" value="local">
@@ -73,11 +71,11 @@
 
 			<hr class="story-separator">
 
-			<div style="text-align: center; margin: 30px 0;">
-				<div class="slogan">"Même sans style, j'ai le droit de jouer au Puissance 4 !"</div>
-				<div class="date">🗓️ 7 octobre 2025 - Kiki 🗓️</div>
+			<div style="text-align: center; margin: 25px 0;">
+				<div class="slogan" style="font-size: 15px;">"Même sans style, j'ai le droit de jouer au Puissance 4 !"</div>
+				<div class="date" style="font-size: 13px;">🗓️ 7 octobre 2025 - Kiki 🗓️</div>
 				
-				<button type="submit" class="popup-btn" style="font-size: 18px; padding: 15px 30px; margin-top: 20px;">
+				<button type="submit" class="popup-btn" style="font-size: 17px; padding: 14px 28px; margin-top: 18px;">
 					⚡ COMMENCER LE COMBAT ÉPIQUE ! ⚡
 				</button>
 			</div>
