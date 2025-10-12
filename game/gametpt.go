@@ -2,19 +2,16 @@ package game
 
 import "fmt"
 
-const (
-	ROWS = 6
-	COLS = 7
-)
-
-// GameState représente l'état full d'une game de P4
 type GameState struct {
-	Board       [][]int `json:"board"` // 0 = vide, 1 = joueur 1 (rouge), 2 = joueur 2 (jaune)
+	Board       [][]int `json:"board"`
 	Player1     User    `json:"player1"`
 	Player2     User    `json:"player2"`
 	CurrentTurn string  `json:"currentTurn"`
 	GameMode    string  `json:"gameMode"`
-	Winner      string  `json:"winner"` // "" si pas de gagnant, nom du gagnant sinon
+	Level       string  `json:"level"`
+	Rows        int     `json:"rows"`
+	Cols        int     `json:"cols"`
+	Winner      string  `json:"winner"`
 	GameOver    bool    `json:"gameOver"`
 	LastMove    struct {
 		Row int `json:"row"`
@@ -22,11 +19,22 @@ type GameState struct {
 	} `json:"lastMove"`
 }
 
-// NewGameState crée un new plato
-func NewGameState(player1Name, player2Name string) *GameState {
-	board := make([][]int, ROWS)
+func NewGameState(player1Name, player2Name, level string) *GameState {
+	var rows, cols int
+	switch level {
+	case "facile":
+		rows, cols = 6, 7
+	case "normal":
+		rows, cols = 6, 9
+	case "difficile":
+		rows, cols = 7, 8
+	default:
+		rows, cols = 6, 7
+	}
+
+	board := make([][]int, rows)
 	for i := range board {
-		board[i] = make([]int, COLS)
+		board[i] = make([]int, cols)
 	}
 
 	return &GameState{
@@ -41,21 +49,21 @@ func NewGameState(player1Name, player2Name string) *GameState {
 		},
 		CurrentTurn: player1Name,
 		GameMode:    "local",
+		Level:       level,
+		Rows:        rows,
+		Cols:        cols,
 		Winner:      "",
 		GameOver:    false,
 	}
 }
 
-// DropPiece fait tomber un pion dans la cln choisi
 func (gs *GameState) DropPiece(col int) bool {
-	if col < 0 || col >= COLS || gs.GameOver {
+	if col < 0 || col >= gs.Cols || gs.GameOver {
 		return false
 	}
 
-	// Trouver la 1e case libr dans la col (en partant du bas)
-	for row := ROWS - 1; row >= 0; row-- {
+	for row := gs.Rows - 1; row >= 0; row-- {
 		if gs.Board[row][col] == 0 {
-			// Déterminer le no du playr
 			playerNum := 1
 			if gs.CurrentTurn == gs.Player2.Name {
 				playerNum = 2
@@ -65,7 +73,6 @@ func (gs *GameState) DropPiece(col int) bool {
 			gs.LastMove.Row = row
 			gs.LastMove.Col = col
 
-			// Vérifier si victoir
 			if gs.CheckWin(row, col, playerNum) {
 				gs.Winner = gs.CurrentTurn
 				gs.GameOver = true
@@ -73,7 +80,6 @@ func (gs *GameState) DropPiece(col int) bool {
 				gs.Winner = "Match nul"
 				gs.GameOver = true
 			} else {
-				// Changer de tr
 				if gs.CurrentTurn == gs.Player1.Name {
 					gs.CurrentTurn = gs.Player2.Name
 				} else {
@@ -83,15 +89,15 @@ func (gs *GameState) DropPiece(col int) bool {
 			return true
 		}
 	}
-	return false // Colonne full
+	return false
 }
 
 func (gs *GameState) CheckWin(row, col, player int) bool {
 	directions := [][]int{
-		{0, 1},  // horizontal
-		{1, 0},  // vertical
-		{1, 1},  // diagonal /
-		{1, -1}, // diagonal \
+		{0, 1},
+		{1, 0},
+		{1, 1},
+		{1, -1},
 	}
 
 	for _, dir := range directions {
@@ -100,7 +106,7 @@ func (gs *GameState) CheckWin(row, col, player int) bool {
 		for i := 1; i < 4; i++ {
 			newRow := row + dir[0]*i
 			newCol := col + dir[1]*i
-			if newRow >= 0 && newRow < ROWS && newCol >= 0 && newCol < COLS &&
+			if newRow >= 0 && newRow < gs.Rows && newCol >= 0 && newCol < gs.Cols &&
 				gs.Board[newRow][newCol] == player {
 				count++
 			} else {
@@ -111,7 +117,7 @@ func (gs *GameState) CheckWin(row, col, player int) bool {
 		for i := 1; i < 4; i++ {
 			newRow := row - dir[0]*i
 			newCol := col - dir[1]*i
-			if newRow >= 0 && newRow < ROWS && newCol >= 0 && newCol < COLS &&
+			if newRow >= 0 && newRow < gs.Rows && newCol >= 0 && newCol < gs.Cols &&
 				gs.Board[newRow][newCol] == player {
 				count++
 			} else {
@@ -127,7 +133,7 @@ func (gs *GameState) CheckWin(row, col, player int) bool {
 }
 
 func (gs *GameState) IsBoardFull() bool {
-	for col := 0; col < COLS; col++ {
+	for col := 0; col < gs.Cols; col++ {
 		if gs.Board[0][col] == 0 {
 			return false
 		}
@@ -145,8 +151,8 @@ func NewGameManager() *GameManager {
 	}
 }
 
-func (gm *GameManager) CreateGame(player1Name, player2Name, gameMode string) string {
-	gameState := NewGameState(player1Name, player2Name)
+func (gm *GameManager) CreateGame(player1Name, player2Name, gameMode, level string) string {
+	gameState := NewGameState(player1Name, player2Name, level)
 	gameState.GameMode = gameMode
 
 	sessionID := generateSessionID(player1Name, player2Name, len(gm.sessions))

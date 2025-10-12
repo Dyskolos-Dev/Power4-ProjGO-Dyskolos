@@ -53,11 +53,22 @@
 			<hr class="story-separator">
 
 			<div class="manifestation">
-				<div class="section-title">⚔️ MODE DE JEU ⚔️</div>
-				<div class="mode-selection">
-					<input type="radio" id="local" name="gamemode" value="local" checked>
-					<label for="local"><strong>🏠 Bataille tour par tour en local 🏠</strong></label>
+				<div class="section-title">⚔️ NIVEAU DE DIFFICULTÉ ⚔️</div>
+				<div class="level-selection" style="text-align: center; margin: 20px 0;">
+					<div style="margin: 15px 0;">
+						<input type="radio" id="facile" name="level" value="facile" checked>
+						<label for="facile"><strong>🟢 FACILE (6x7) 🟢</strong><br><span style="font-size: 14px;">Grille classique pour débuter !</span></label>
+					</div>
+					<div style="margin: 15px 0;">
+						<input type="radio" id="normal" name="level" value="normal">
+						<label for="normal"><strong>🟡 NORMAL (6x9) 🟡</strong><br><span style="font-size: 14px;">Plus de colonnes pour plus de stratégie !</span></label>
+					</div>
+					<div style="margin: 15px 0;">
+						<input type="radio" id="difficile" name="level" value="difficile">
+						<label for="difficile"><strong>🔴 DIFFICILE (7x8) 🔴</strong><br><span style="font-size: 14px;">Grille élargie pour les experts !</span></label>
+					</div>
 				</div>
+				<input type="hidden" name="gamemode" value="local">
 			</div>
 
 			<hr class="story-separator">

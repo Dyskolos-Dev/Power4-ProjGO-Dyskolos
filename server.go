@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"html/template"
 	"log"
 	"net/http"
@@ -26,12 +27,13 @@ func StartGame(w http.ResponseWriter, r *http.Request) {
 	player1Name := r.FormValue("player1")
 	player2Name := r.FormValue("player2")
 	gameMode := r.FormValue("gamemode")
-	if player1Name == "" || player2Name == "" {
+	level := r.FormValue("level")
+	if player1Name == "" || player2Name == "" || level == "" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
-	sessionID := gameManager.CreateGame(player1Name, player2Name, gameMode)
+	sessionID := gameManager.CreateGame(player1Name, player2Name, gameMode, level)
 
 	http.Redirect(w, r, "/game/"+sessionID, http.StatusSeeOther)
 }
@@ -65,6 +67,13 @@ func ShowGame(w http.ResponseWriter, r *http.Request) {
 		},
 		"list": func(args ...int) []int {
 			return args
+		},
+		"makeRange": func(n int) []int {
+			arr := make([]int, n)
+			for i := 0; i < n; i++ {
+				arr[i] = i
+			}
+			return arr
 		},
 	}
 	tmpl, err := template.New("gametpt.html").Funcs(funcMap).ParseFiles("template/gametpt.html")
@@ -105,7 +114,27 @@ func MakeMove(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, gameErr.Error(), http.StatusBadRequest)
 		return
 	}
-	http.Redirect(w, r, "/game/"+sessionID, http.StatusSeeOther)
+
+	// Ca jsp m'en voulez pas j'ai demandé a copilot comment faire pour rester au bon endroit sur la page
+
+	if r.Header.Get("Accept") == "application/json" {
+		gameState, exists := gameManager.GetGame(sessionID)
+		if !exists {
+			http.Error(w, "Session introuvable", http.StatusNotFound)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(gameState)
+		return
+	}
+
+	gameState, exists := gameManager.GetGame(sessionID)
+	if exists && gameState.GameOver {
+		http.Redirect(w, r, "/game/"+sessionID, http.StatusSeeOther)
+	} else {
+		http.Redirect(w, r, "/game/"+sessionID+"#game-board", http.StatusSeeOther)
+	}
 }
 
 func main() {
