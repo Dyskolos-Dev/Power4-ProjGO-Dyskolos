@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/x-icon" href="/src/favicon.ico">
 	<link rel="stylesheet" href="/static/styles.css">
 
-<style>
+	<style>
 		.game-board-container {
 			scroll-margin-top: 20px;
 		}
@@ -23,70 +23,20 @@
 		.column-btn:active {
 			transform: translateY(4px);
 		}
-		
-		.loading {
-			opacity: 0.6;
-			pointer-events: none;
-		}
 	</style>
 	<script>
-		function makeMoveAjax(column, sessionId) {
-			const gameBoard = document.getElementById('game-board');
-			gameBoard.classList.add('loading');
-			
-			const formData = new FormData();
-			formData.append('sessionId', sessionId);
-			formData.append('column', column);
-			
-			fetch('/move', {
-				method: 'POST',
-				headers: {
-					'Accept': 'application/json'
-				},
-				body: formData
-			})
-			.then(response => response.json())
-			.then(gameState => {
-				updateGameBoard(gameState);
-				gameBoard.classList.remove('loading');
-				
-				if (gameState.gameOver) {
-					setTimeout(() => {
-						window.location.reload();
-					}, 1000);
-				}
-			})
-			.catch(error => {
-				console.error('Erreur:', error);
-				window.location.reload();
-			});
-		}
+		// Sauvegarder la position de scroll avant de quitter la page
+		window.addEventListener('beforeunload', function() {
+			sessionStorage.setItem('scrollPos', window.scrollY);
+		});
 		
-		function updateGameBoard(gameState) {
-			const currentTurnElement = document.querySelector('.chute p');
-			if (currentTurnElement) {
-				currentTurnElement.innerHTML = `<blink>🚨 C'est au tour de : <strong style="color: #00FFFF;">${gameState.currentTurn}</strong> ! 🚨</blink>`;
+		// Restaurer la position de scroll au chargement
+		window.addEventListener('load', function() {
+			const scrollPos = sessionStorage.getItem('scrollPos');
+			if (scrollPos) {
+				window.scrollTo(0, parseInt(scrollPos));
 			}
-			
-			const rows = document.querySelectorAll('.grid-row');
-			rows.forEach((row, rowIndex) => {
-				const cells = row.querySelectorAll('.grid-cell');
-				cells.forEach((cell, colIndex) => {
-					const cellValue = gameState.board[rowIndex][colIndex];
-					cell.innerHTML = '';
-					
-					if (cellValue === 1) {
-						cell.style.background = '#FF6666';
-						cell.innerHTML = '<img src="/src/kiki_rouge.png" alt="Pion Rouge" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 5px #FF0000;">';
-					} else if (cellValue === 2) {
-						cell.style.background = '#FFFF66';
-						cell.innerHTML = '<img src="/src/gab_jaune.png" alt="Pion Jaune" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 5px #FFFF00;">';
-					} else {
-						cell.style.background = '#FFFFFF';
-					}
-				});
-			});
-		}
+		});
 	</script>
 </head>
 <body>
@@ -131,6 +81,18 @@
 			<p style="text-align: center; font-size: 24px;">
 				<blink>🚨 C'est au tour de : <strong style="color: #00FFFF;">{{.CurrentTurn}}</strong> ! 🚨</blink>
 			</p>
+			{{if eq .GameMode "inverse"}}
+			{{if .InverseGravity}}
+			<div style="text-align: center; margin-top: 15px; padding: 10px; border: 3px solid #FFFF00; background: linear-gradient(180deg, #FF00FF, #8000FF);">
+			{{else}}
+			<div style="text-align: center; margin-top: 15px; padding: 10px; border: 3px solid #FFFF00; background: linear-gradient(0deg, #00FFFF, #0080FF);">
+			{{end}}
+				<p style="font-size: 20px; margin: 5px 0;">
+					<strong>{{if .InverseGravity}}🔼 GRAVITÉ INVERSÉE 🔼{{else}}🔽 GRAVITÉ NORMALE 🔽{{end}}</strong>
+				</p>
+				<p style="font-size: 14px; margin: 5px 0;">Tour: {{.TurnCount}} - Prochain changement dans {{subtract 5 (mod .TurnCount 5)}} tour{{if ne (subtract 5 (mod .TurnCount 5)) 1}}s{{end}}</p>
+			</div>
+			{{end}}
 		</div>
 
 		<hr class="story-separator">
@@ -141,32 +103,32 @@
 				<!-- Btn colonnes -->
 				<div class="column-buttons" style="margin-bottom: 10px;">
 					{{range $col := makeRange .Cols}}
-						<form style="display: inline-block; margin: 0 2px;" method="POST" action="/move" onsubmit="event.preventDefault(); makeMoveAjax('{{$col}}', '{{$.SessionID}}'); return false;">
+						<form style="display: inline-block; margin: 0 2px;" method="POST" action="/move">
 							<input type="hidden" name="sessionId" value="{{$.SessionID}}">
 							<input type="hidden" name="column" value="{{$col}}">
-							<button type="submit" class="column-btn" style="
-								background: linear-gradient(45deg, #00FFFF, #0080FF);
-								border: 3px outset #FFFFFF;
-								color: #000000;
-								font-weight: bold;
-								padding: 8px 12px;
-								font-size: 14px;
-								border-radius: 0;
-								box-shadow: 3px 3px 0px #000000;
-								margin: 2px;
-							">▼ {{add $col 1}}</button>
+							{{if eq $.GameMode "inverse"}}
+								{{if $.InverseGravity}}
+							<button type="submit" class="column-btn" style="background: linear-gradient(45deg, #FF00FF, #FF0080); border: 3px outset #FFFFFF; color: #000000; font-weight: bold; padding: 8px 12px; font-size: 14px; border-radius: 0; box-shadow: 3px 3px 0px #000000; margin: 2px;">▲ {{add $col 1}}</button>
+								{{else}}
+							<button type="submit" class="column-btn" style="background: linear-gradient(45deg, #00FFFF, #0080FF); border: 3px outset #FFFFFF; color: #000000; font-weight: bold; padding: 8px 12px; font-size: 14px; border-radius: 0; box-shadow: 3px 3px 0px #000000; margin: 2px;">▼ {{add $col 1}}</button>
+								{{end}}
+							{{else}}
+							<button type="submit" class="column-btn" style="background: linear-gradient(45deg, #00FFFF, #0080FF); border: 3px outset #FFFFFF; color: #000000; font-weight: bold; padding: 8px 12px; font-size: 14px; border-radius: 0; box-shadow: 3px 3px 0px #000000; margin: 2px;">▼ {{add $col 1}}</button>
+							{{end}}
 						</form>
 					{{end}}
 				</div>
 				
 				<!-- Plateau kikiii p4 -->
-				<div class="game-grid" style="
-					display: inline-block;
-					background: #0000FF;
-					border: 5px ridge #FFFF00;
-					padding: 15px;
-					box-shadow: 10px 10px 0px #000000;
-				">
+				{{if eq .GameMode "inverse"}}
+					{{if .InverseGravity}}
+				<div class="game-grid" style="display: inline-block; background: linear-gradient(180deg, #FF00FF, #8000FF); border: 5px ridge #FF00FF; padding: 15px; box-shadow: 10px 10px 0px #000000; transition: all 0.5s ease;">
+					{{else}}
+				<div class="game-grid" style="display: inline-block; background: linear-gradient(0deg, #00FFFF, #0080FF); border: 5px ridge #00FFFF; padding: 15px; box-shadow: 10px 10px 0px #000000; transition: all 0.5s ease;">
+					{{end}}
+				{{else}}
+				<div class="game-grid" style="display: inline-block; background: #0000FF; border: 5px ridge #FFFF00; padding: 15px; box-shadow: 10px 10px 0px #000000; transition: all 0.5s ease;">
+				{{end}}
 					{{range $row := .Board}}
 						<div class="grid-row" style="display: flex; gap: 8px; margin-bottom: 8px;">
 							{{range $col, $cell := $row}}

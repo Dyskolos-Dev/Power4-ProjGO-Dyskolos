@@ -3,17 +3,19 @@ package game
 import "fmt"
 
 type GameState struct {
-	Board       [][]int `json:"board"`
-	Player1     User    `json:"player1"`
-	Player2     User    `json:"player2"`
-	CurrentTurn string  `json:"currentTurn"`
-	GameMode    string  `json:"gameMode"`
-	Level       string  `json:"level"`
-	Rows        int     `json:"rows"`
-	Cols        int     `json:"cols"`
-	Winner      string  `json:"winner"`
-	GameOver    bool    `json:"gameOver"`
-	LastMove    struct {
+	Board          [][]int `json:"board"`
+	Player1        User    `json:"player1"`
+	Player2        User    `json:"player2"`
+	CurrentTurn    string  `json:"currentTurn"`
+	GameMode       string  `json:"gameMode"`
+	Level          string  `json:"level"`
+	Rows           int     `json:"rows"`
+	Cols           int     `json:"cols"`
+	Winner         string  `json:"winner"`
+	GameOver       bool    `json:"gameOver"`
+	TurnCount      int     `json:"turnCount"`
+	InverseGravity bool    `json:"inverseGravity"`
+	LastMove       struct {
 		Row int `json:"row"`
 		Col int `json:"col"`
 	} `json:"lastMove"`
@@ -47,13 +49,15 @@ func NewGameState(player1Name, player2Name, level string) *GameState {
 			Name:  player2Name,
 			Color: "yellow",
 		},
-		CurrentTurn: player1Name,
-		GameMode:    "local",
-		Level:       level,
-		Rows:        rows,
-		Cols:        cols,
-		Winner:      "",
-		GameOver:    false,
+		CurrentTurn:    player1Name,
+		GameMode:       "local",
+		Level:          level,
+		Rows:           rows,
+		Cols:           cols,
+		Winner:         "",
+		GameOver:       false,
+		TurnCount:      0,
+		InverseGravity: false,
 	}
 }
 
@@ -62,34 +66,57 @@ func (gs *GameState) DropPiece(col int) bool {
 		return false
 	}
 
-	for row := gs.Rows - 1; row >= 0; row-- {
-		if gs.Board[row][col] == 0 {
-			playerNum := 1
-			if gs.CurrentTurn == gs.Player2.Name {
-				playerNum = 2
-			}
+	var row int
+	var found bool
 
-			gs.Board[row][col] = playerNum
-			gs.LastMove.Row = row
-			gs.LastMove.Col = col
-
-			if gs.CheckWin(row, col, playerNum) {
-				gs.Winner = gs.CurrentTurn
-				gs.GameOver = true
-			} else if gs.IsBoardFull() {
-				gs.Winner = "Match nul"
-				gs.GameOver = true
-			} else {
-				if gs.CurrentTurn == gs.Player1.Name {
-					gs.CurrentTurn = gs.Player2.Name
-				} else {
-					gs.CurrentTurn = gs.Player1.Name
-				}
+	if gs.GameMode == "inverse" && gs.InverseGravity {
+		for row = 0; row < gs.Rows; row++ {
+			if gs.Board[row][col] == 0 {
+				found = true
+				break
 			}
-			return true
+		}
+	} else {
+		for row = gs.Rows - 1; row >= 0; row-- {
+			if gs.Board[row][col] == 0 {
+				found = true
+				break
+			}
 		}
 	}
-	return false
+
+	if !found {
+		return false
+	}
+
+	playerNum := 1
+	if gs.CurrentTurn == gs.Player2.Name {
+		playerNum = 2
+	}
+
+	gs.Board[row][col] = playerNum
+	gs.LastMove.Row = row
+	gs.LastMove.Col = col
+	gs.TurnCount++
+
+	if gs.GameMode == "inverse" && gs.TurnCount%5 == 0 {
+		gs.InverseGravity = !gs.InverseGravity
+	}
+
+	if gs.CheckWin(row, col, playerNum) {
+		gs.Winner = gs.CurrentTurn
+		gs.GameOver = true
+	} else if gs.IsBoardFull() {
+		gs.Winner = "Match nul"
+		gs.GameOver = true
+	} else {
+		if gs.CurrentTurn == gs.Player1.Name {
+			gs.CurrentTurn = gs.Player2.Name
+		} else {
+			gs.CurrentTurn = gs.Player1.Name
+		}
+	}
+	return true
 }
 
 func (gs *GameState) CheckWin(row, col, player int) bool {

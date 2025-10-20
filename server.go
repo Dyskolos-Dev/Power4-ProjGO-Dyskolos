@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"html/template"
 	"log"
 	"net/http"
@@ -43,16 +42,16 @@ func Rematch(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-	
+
 	oldSessionID := r.FormValue("sessionId")
 	gameState, exists := gameManager.GetGame(oldSessionID)
 	if !exists {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-	
+
 	newSessionID := gameManager.CreateGame(gameState.Player1.Name, gameState.Player2.Name, gameState.GameMode, gameState.Level)
-	
+
 	http.Redirect(w, r, "/game/"+newSessionID, http.StatusSeeOther)
 }
 
@@ -89,6 +88,12 @@ func ShowGame(w http.ResponseWriter, r *http.Request) {
 	funcMap := template.FuncMap{
 		"add": func(a, b int) int {
 			return a + b
+		},
+		"subtract": func(a, b int) int {
+			return a - b
+		},
+		"mod": func(a, b int) int {
+			return a % b
 		},
 		"list": func(args ...int) []int {
 			return args
@@ -140,26 +145,7 @@ func MakeMove(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Ca jsp m'en voulez pas j'ai demandé a copilot comment faire pour rester au bon endroit sur la page
-
-	if r.Header.Get("Accept") == "application/json" {
-		gameState, exists := gameManager.GetGame(sessionID)
-		if !exists {
-			http.Error(w, "Session introuvable", http.StatusNotFound)
-			return
-		}
-
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(gameState)
-		return
-	}
-
-	gameState, exists := gameManager.GetGame(sessionID)
-	if exists && gameState.GameOver {
-		http.Redirect(w, r, "/game/"+sessionID, http.StatusSeeOther)
-	} else {
-		http.Redirect(w, r, "/game/"+sessionID+"#game-board", http.StatusSeeOther)
-	}
+	http.Redirect(w, r, "/game/"+sessionID, http.StatusSeeOther)
 }
 
 func main() {
